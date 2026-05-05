@@ -1,0 +1,124 @@
+{
+  "dataList": [
+    {
+      "id": 1,
+      "name": "dress",
+      "Description": "Elegant floral dress perfect for occasion. Made from premium fabric for all-day comfort.",
+      "image": "http://localhost:3000/assets/specs1.png",
+      "price": 1999,
+      "model": "Tulip-2025"
+    },
+    {
+      "id": 2,
+      "name": "electronics",
+      "Description": "Latest gadgets and devices tech needs. Quality assured and competitively priced.",
+      "image": "http://localhost:3000/assets/specs1.png",
+      "price": 4999,
+      "model": "ElectroX-500"
+    },
+    {
+      "id": 3,
+      "name": "groceries",
+      "Description": "Fresh groceries delivered to your door. Wide selection of organic and local produce .",
+      "image": "http://localhost:3000/assets/specs1.png",
+      "price": 299,
+      "model": "GroceryPack-12"
+    },
+    {
+      "id": 4,
+      "name": "watch",
+      "Description": "Stylish wristwatch with modern design. Water-resistant and durable for daily wear.",
+      "image": "http://localhost:3000/assets/specs1.png",
+      "price": 2499,
+      "model": "TimePro-X"
+    },
+    {
+      "id": 5,
+      "name": "accessories",
+      "Description": "Trendy accessories to complement style. Choose from bags, and more.",
+      "image": "http://localhost:3000/assets/specs1.png",
+      "price": 799,
+      "model": "AccSet-2025"
+    },
+    {
+      "id": 6,
+      "name": "shoes",
+      "Description": "Comfortable and fashionable shoes for occasions. Available in various sizes and colors.",
+      "image": "http://localhost:3000/assets/specs1.png",
+      "price": 1599,
+      "model": "WalkEase-7"
+    },
+    {
+      "id": 7,
+      "name": "laptop",
+      "Description": "High-performance laptops for work and play. Lightweight, powerful, and reliable.",
+      "image": "http://localhost:3000/assets/specs1.png",
+      "price": 39999,
+      "model": "LapPro-15"
+    },
+    {
+      "id": 8,
+      "name": "mobile",
+      "Description": "Latest smartphones with advanced features. Stay connected style and speed.",
+      "image": "http://localhost:3000/assets/specs1.png",
+      "price": 24999,
+      "model": "SmartX-10"
+    },
+    {
+      "id": 9,
+      "name": "books",
+      "Description": "Explore a wide range of books across genres. Find your next great read here.",
+      "image": "http://localhost:3000/assets/specs1.png",
+      "price": 499,
+      "model": "BookSet-Classic"
+    },
+    {
+      "id": 10,
+      "name": "furniture",
+      "Description": "Modern and classic furniture for your home. Quality materials and elegant designs.",
+      "image": "http://localhost:3000/assets/specs1.png",
+      "price": 8999,
+      "model": "FurniHome-2025"
+    },
+    {
+      "id": 11,
+      "name": "toys",
+      "Description": "Fun and educational toys for children of all ages. Safe and durable materials.",
+      "image": "http://localhost:3000/assets/specs1.png",
+      "price": 699,
+      "model": "ToyBox-5"
+    },
+    {
+      "id": 12,
+      "name": "kitchenware",
+      "Description": "Premium kitchenware for easy cooking. Durable, stylish, and easy to clean.",
+      "image": "http://localhost:3000/assets/specs1.png",
+      "price": 1299,
+      "model": "KitchenPro-Set"
+    },
+    {
+      "id": 13,
+      "name": "headphones",
+      "Description": "Wireless headphones with noise cancellation. Enjoy immersive sound quality.",
+      "image": "http://localhost:3000/assets/specs1.png",
+      "price": 2999,
+      "model": "SoundMax-360"
+    },
+    {
+      "id": 14,
+      "name": "backpack",
+      "Description": "Spacious and stylish backpack for daily use. Water-resistant and lightweight.",
+      "image": "http://localhost:3000/assets/specs1.png",
+      "price": 1199,
+      "model": "UrbanPack-21"
+    },
+    {
+      "id": 15,
+      "name": "sunglasses",
+      "Description": "UV-protected sunglasses with modern frames. Perfect for sunny days.",
+      "image": "http://localhost:3000/assets/specs1.png",
+      "price": 899,
+      "model": "SunStyle-UV"
+    }
+  ]
+}

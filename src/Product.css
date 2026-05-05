@@ -1,0 +1,90 @@
+.card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 30px;
+    margin: 20px;
+    width: 400px !important;  /* Increased width for better display */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    min-height: 620px; /* Ensure consistent card height */
+}
+
+/* Product image styling */
+.card img {
+    width: 100% !important;
+    height: 320px !important; /* Taller image for better visibility */
+    border-radius: 12px;
+    margin-bottom: 20px;
+    object-fit: contain !important; /* Show full image without cropping */
+    background-color: #f8f9fa;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+
+.card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+}
+
+.card h3 {
+    font-size: 1.3rem;
+    color: #2d2d2d;
+    margin: 0 0 8px 0;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.card p {
+    color: #555;
+    font-size: 1rem;
+    margin: 4px 0;
+    text-align: center;
+    
+}
+
+.category-badge-product {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 5px 14px;
+    border-radius: 14px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin: 6px 0;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.card .price {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #2d2d2d;
+    margin: 6px 0;
+    letter-spacing: 0.5px;
+}
+
+.card button {
+    margin-top: 14px;
+    padding: 10px 28px;
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(255,126,95,0.10);
+    transition: background 0.2s, transform 0.2s;
+}
+
+.card button:disabled,
+.card button[disabled] {
+    background: #ccc;
+    color: #888;
+    cursor: not-allowed;
+    transform: none;
+}

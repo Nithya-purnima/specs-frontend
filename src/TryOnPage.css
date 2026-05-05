@@ -1,0 +1,40 @@
+.tryon-page-container {
+  padding: 32px 0;
+  min-height: 100vh;
+  background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tryon-title {
+  font-size: 2.7rem;
+  color: #2d3a4a;
+  margin-bottom: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(44,62,80,0.08);
+}
+
+.tryon-card {
+  background: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 18px;
+  box-shadow: 0 6px 32px rgba(44,62,80,0.10);
+  width: 100%;
+  max-width: 820px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  .tryon-card {
+    padding: 1.2rem 0.5rem;
+    max-width: 98vw;
+  }
+  .tryon-title {
+    font-size: 2rem;
+  }
+}

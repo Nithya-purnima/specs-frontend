@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-bg {
+    min-height: 100vh;
+    min-width: 100vw;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.login-container {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 3rem 1rem;
+    margin-left: 15vw; /* Slightly left, not too much */
+}
+
+.login-form {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 12px 32px rgba(255, 183, 77, 0.18);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: box-shadow 0.3s;
+    border: 1px solid #ffe0b2;
+}
+
+.login-form:hover {
+    box-shadow: 0 16px 40px rgba(135, 206, 235, 0.28);
+}
+
+.login-title {
+    font-size: 2.3rem;
+    font-weight: 700;
+    text-align: center;
+    color: #ff9800;
+    letter-spacing: 1px;
+}
+
+.login-subtitle {
+    font-size: 1.1rem;
+    text-align: center;
+    color: #1976d2;
+    margin-bottom: 0.5rem;
+}
+
+.input {
+    padding: 1rem 1.1rem;
+    border-radius: 10px;
+    border: 1px solid #90caf9;
+    font-size: 1rem;
+    background: #e3f2fd;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input:focus {
+    border-color: #ff9800;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.15);
+}
+
+.button {
+    padding: 1rem;
+    border-radius: 10px;
+    border: none;
+    background: #ff9800;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 16px rgba(255, 152, 0, 0.08);
+}
+
+.button:hover {
+   
+    transform: translateY(-2px) scale(1.03);
+}
+
+.error {
+    color: #e74c3c;
+    font-size: 0.95rem;
+    text-align: center;
+    background: #fdecea;
+    border-radius: 6px;
+    padding: 0.5rem;
+}
+
+.login-footer {
+    font-size: 0.95rem;
+    text-align: center;
+    color: #1976d2;
+    margin-top: 0.5rem;
+}
+
+.login-footer a {
+    color: #ff9800;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.login-footer a:hover {
+    color: #1976d2;
+    text-decoration: underline;
+}

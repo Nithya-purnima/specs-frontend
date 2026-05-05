@@ -1,0 +1,136 @@
+.hero {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end; 
+    text-align: right; 
+    padding-right: 3rem; 
+    gap: 10px;
+    background: none;
+    text-shadow: none;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* ✅ Centers text and button */
+    text-align: center;    /* ✅ Center align text */
+    gap: 10px;
+}
+
+
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+}
+.hero p {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.hero-btn {
+    padding: 12px 24px;
+    background: #ff9900;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.hero-btn:hover {
+    background: #e68a00;
+}
+
+.category-section {
+    padding: 60px 40px;
+    text-align: center;
+    background: hwb(210 97% 2%);
+}
+
+.category-section h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+@media (max-width: 1024px) {
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.category-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    aspect-ratio: 3/4;
+    height: 250px;
+    width:230px;
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.category-card p {
+    padding: 12px;
+    font-weight: 500;
+}
+
+.featured {
+    padding: 40px;
+    background: #fff;
+}
+
+.product-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer {
+    padding: 20px;
+    text-align: center;
+    background: #222;
+    color: #aaa;
+}
+.footer p {
+    margin: 0;
+}
