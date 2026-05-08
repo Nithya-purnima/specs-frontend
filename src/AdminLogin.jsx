@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import './Login.css';
 import Navbar from "./Navbar";
+import { BASE_URL } from './config';
 
 const AdminLogin = () => {
     const [form, setForm] = useState({ email: "", password: "" });
@@ -24,7 +25,7 @@ const AdminLogin = () => {
 
         setLoading(true);
         try {
-            const response = await fetch('https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/admin/login', {
+            const response = await fetch(`${BASE_URL}/api/admin/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './CustomerDashboard.css';
+import { BASE_URL } from './config';
 
 const CustomerDashboard = () => {
     const [customer, setCustomer] = useState(null);
@@ -49,7 +50,7 @@ const CustomerDashboard = () => {
     const handleSaveChanges = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch(`https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/auth/customer/${customer.id}`, {
+            const response = await fetch(`${BASE_URL}/api/auth/customer/${customer.id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

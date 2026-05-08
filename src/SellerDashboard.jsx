@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { BASE_URL } from './config';
 import './SellerDashboard.css';
 
 const SellerDashboard = () => {
@@ -39,7 +40,7 @@ const SellerDashboard = () => {
 
     const fetchProducts = async (token) => {
         try {
-            const response = await fetch('https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/products/seller/my-products', {
+            const response = await fetch(`${BASE_URL}/api/products/seller/my-products`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -58,7 +59,7 @@ const SellerDashboard = () => {
 
     const fetchOrders = async (token) => {
         try {
-            const response = await fetch('https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/orders/seller/my-orders', {
+            const response = await fetch(`${BASE_URL}/api/orders/seller/my-orders`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -113,7 +114,7 @@ const SellerDashboard = () => {
 
         try {
             const token = localStorage.getItem('sellerToken');
-            const response = await fetch('https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/products', {
+            const response = await fetch(`${BASE_URL}/api/products`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -143,7 +144,7 @@ const SellerDashboard = () => {
 
         try {
             const token = localStorage.getItem('sellerToken');
-            const response = await fetch(`https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/products/${productId}`, {
+            const response = await fetch(`${BASE_URL}/api/products/${productId}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -293,7 +294,7 @@ const SellerDashboard = () => {
                                 products.map(product => (
                                     <div key={product.id} className="product-card">
                                         <img 
-                                            src={product.image ? `https://specs-backend.onrender.com${product.image}` : 'https://via.placeholder.com/200'} 
+                                            src={product.image ? `${BASE_URL}${product.image}` : 'https://via.placeholder.com/200'} 
                                             alt={product.name}
                                         />
                                         <div className="product-info">

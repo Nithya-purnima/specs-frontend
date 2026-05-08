@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from './config';
 import './Login.css';
 
 const SellerRegister = () => {
@@ -47,7 +48,7 @@ const SellerRegister = () => {
         }
 
         try {
-            const response = await fetch('https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/seller/register', {
+            const response = await fetch(`${BASE_URL}/api/seller/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

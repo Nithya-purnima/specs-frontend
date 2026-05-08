@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import './Login.css';
 import Navbar from "./Navbar";
+import { BASE_URL } from "../config"; // ✅ ADD THIS
 
 const SellerLogin = () => {
     const [form, setForm] = useState({ email: "", password: "" });
@@ -21,30 +22,31 @@ const SellerLogin = () => {
             setError("Please fill in all fields.");
             return;
         }
+
         if (form.password.length < 8) {
             setError("Password must be at least 8 characters long.");
             return;
         }
 
         setLoading(true);
+
         try {
-            const response = await fetch('https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/seller/login', {
-                method: 'POST',
+            const response = await fetch(`${BASE_URL}/api/seller/login`, {
+                method: "POST",
                 headers: {
-                    'Content-Type': 'application/json',
+                    "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
                     email: form.email,
-                    password: form.password
+                    password: form.password,
                 }),
             });
 
             const data = await response.json();
 
             if (response.ok) {
-                // Store seller data in localStorage
-                localStorage.setItem('seller', JSON.stringify(data.user));
-                localStorage.setItem('sellerToken', data.token);
+                localStorage.setItem("seller", JSON.stringify(data.user));
+                localStorage.setItem("sellerToken", data.token);
                 navigate("/seller-dashboard");
             } else {
                 setError(data.message || "Invalid credentials. Please try again.");
@@ -59,38 +61,71 @@ const SellerLogin = () => {
 
     return (
         <>
-        <Navbar/>
-        <div className="login-container">
-            <form onSubmit={handleSubmit} className="login-form" style={{ background: 'rgba(255,255,255,0.85)', borderRadius: '16px', padding: '32px', boxShadow: '0 4px 24px rgba(0,0,0,0.10)' }}>
-                <h2 className="login-title">Seller Login</h2>
-                <p className="login-subtitle">Login to your seller account</p>
-                
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    value={form.email}
-                    onChange={handleChange}
-                    className="input"
-                />
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    value={form.password}
-                    onChange={handleChange}
-                    className="input"
-                />
-                <button type="submit" className="button" disabled={loading}>
-                    {loading ? "Logging in..." : "Login"}
-                </button>
-                {error && <div className="error">{error}</div>}
-                <p className="login-footer">
-                    Not a seller yet? <a href="/seller-register" style={{ color: '#4caf50', textDecoration: 'none', fontWeight: '600' }}>Register</a><br />
-                    <a href="/login" style={{ color: '#666', textDecoration: 'none', fontSize: '14px' }}>Customer Login</a>
-                </p>
-            </form>
-        </div>
+            <Navbar />
+            <div className="login-container">
+                <form
+                    onSubmit={handleSubmit}
+                    className="login-form"
+                    style={{
+                        background: "rgba(255,255,255,0.85)",
+                        borderRadius: "16px",
+                        padding: "32px",
+                        boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
+                    }}
+                >
+                    <h2 className="login-title">Seller Login</h2>
+                    <p className="login-subtitle">Login to your seller account</p>
+
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        value={form.email}
+                        onChange={handleChange}
+                        className="input"
+                    />
+
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        value={form.password}
+                        onChange={handleChange}
+                        className="input"
+                    />
+
+                    <button type="submit" className="button" disabled={loading}>
+                        {loading ? "Logging in..." : "Login"}
+                    </button>
+
+                    {error && <div className="error">{error}</div>}
+
+                    <p className="login-footer">
+                        Not a seller yet?{" "}
+                        <a
+                            href="/seller-register"
+                            style={{
+                                color: "#4caf50",
+                                textDecoration: "none",
+                                fontWeight: "600",
+                            }}
+                        >
+                            Register
+                        </a>
+                        <br />
+                        <a
+                            href="/login"
+                            style={{
+                                color: "#666",
+                                textDecoration: "none",
+                                fontSize: "14px",
+                            }}
+                        >
+                            Customer Login
+                        </a>
+                    </p>
+                </form>
+            </div>
         </>
     );
 };

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './Checkout.css';
+import { BASE_URL } from './config';
 
 const Checkout = () => {
     const navigate = useNavigate();
@@ -85,7 +86,7 @@ const Checkout = () => {
 
             // Place orders for each cart item
             for (const item of cartItems) {
-                const response = await fetch('https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/orders', {
+                const response = await fetch(`${BASE_URL}/api/orders`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -324,7 +325,7 @@ const Checkout = () => {
                             {cartItems.map((item, index) => (
                                 <div key={index} className="summary-item">
                                     <img
-                                        src={item.image ? `https://specs-backend.onrender.com${item.image}` : 'https://via.placeholder.com/60'}
+                                        src={item.image ? `${BASE_URL}${item.image}` : 'https://via.placeholder.com/60'}
                                         alt={item.name}
                                     />
                                     <div className="item-details">

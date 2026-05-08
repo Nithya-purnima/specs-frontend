@@ -1,6 +1,7 @@
 import Product from './Product';
 import React, { useEffect, useState } from 'react';
 import Navbar from './Navbar';
+import { BASE_URL } from './config';
 
 function DynamicContent() {
     const [dataList, setdataList] = useState(null);
@@ -9,7 +10,7 @@ function DynamicContent() {
 
     useEffect(() => {
         // Fetch products from backend API
-        fetch('https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/products')
+        fetch(`${BASE_URL}/api/products`)
             .then((response) => {
                 if (!response.ok) {
                     throw Error('Could not retrieve products from server');

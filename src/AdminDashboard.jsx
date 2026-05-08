@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AdminDashboard.css';
 import Navbar from './Navbar';
+import { BASE_URL } from './config';
 
 const AdminDashboard = () => {
     const [admin, setAdmin] = useState(null);
@@ -33,19 +34,19 @@ const AdminDashboard = () => {
         try {
             // Fetch all data in parallel
             const [statsRes, customersRes, productsRes, sellersRes, pendingSellersRes] = await Promise.all([
-                fetch('https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/dashboard/stats', {
+                fetch(`${BASE_URL}/api/dashboard/stats`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 }),
-                fetch('https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/dashboard/customers', {
+                fetch(`${BASE_URL}/api/dashboard/customers`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 }),
-                fetch('https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/dashboard/products', {
+                fetch(`${BASE_URL}/api/dashboard/products`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 }),
-                fetch('https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/dashboard/sellers', {
+                fetch(`${BASE_URL}/api/dashboard/sellers`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 }),
-                fetch('https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/dashboard/sellers/pending', {
+                fetch(`${BASE_URL}/api/dashboard/sellers/pending`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 })
             ]);
@@ -72,7 +73,7 @@ const AdminDashboard = () => {
     const handleApproveSeller = async (sellerId) => {
         try {
             const token = localStorage.getItem('adminToken');
-            const response = await fetch(`https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/dashboard/sellers/${sellerId}/approve`, {
+            const response = await fetch(`${BASE_URL}/api/dashboard/sellers/${sellerId}/approve`, {
                 method: 'PUT',
                 headers: { 'Authorization': `Bearer ${token}` }
             });
@@ -97,7 +98,7 @@ const AdminDashboard = () => {
 
         try {
             const token = localStorage.getItem('adminToken');
-            const response = await fetch(`https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/dashboard/sellers/${sellerId}/reject`, {
+            const response = await fetch(`${BASE_URL}/api/dashboard/sellers/${sellerId}/reject`, {
                 method: 'PUT',
                 headers: { 'Authorization': `Bearer ${token}` }
             });
@@ -122,7 +123,7 @@ const AdminDashboard = () => {
 
         try {
             const token = localStorage.getItem('adminToken');
-            const response = await fetch(`https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/dashboard/products/${productId}`, {
+            const response = await fetch(`${BASE_URL}/api/dashboard/products/${productId}`, {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${token}` }
             });
@@ -321,7 +322,7 @@ const AdminDashboard = () => {
                             {products.map(product => (
                                 <div key={product.id} className="product-card">
                                     <img 
-                                        src={product.image ? `https://specs-backend.onrender.com${product.image}` : 'https://via.placeholder.com/200'} 
+                                        src={product.image ? `${BASE_URL}${product.image}` : 'https://via.placeholder.com/200'} 
                                         alt={product.name}
                                     />
                                     <div className="product-info">

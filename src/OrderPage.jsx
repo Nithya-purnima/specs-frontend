@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import cartempty from "./cartempty.png";
+import { BASE_URL } from './config';
 
 import './OrderPage.css';
 
@@ -26,7 +27,7 @@ function OrdersPage() {
                 return;
             }
 
-            const response = await fetch('https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/orders/customer/my-orders', {
+            const response = await fetch(`${BASE_URL}/api/orders/customer/my-orders`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -80,7 +81,7 @@ function OrdersPage() {
                                 <div className="order-card-body">
                                     <div className="item-details">
                                         <img 
-                                            src={order.product?.image ? `https://specs-backend.onrender.com${order.product.image}` : 'https://via.placeholder.com/100'} 
+                                            src={order.product?.image ? `${BASE_URL}${order.product.image}` : 'https://via.placeholder.com/100'} 
                                             alt={order.product?.name} 
                                             className="item-image" 
                                         />
