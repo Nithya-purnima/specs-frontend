@@ -26,7 +26,7 @@ function OrdersPage() {
                 return;
             }
 
-            const response = await fetch('https://specs-backend.onrender.com/api/orders/customer/my-orders', {
+            const response = await fetch('https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/orders/customer/my-orders', {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }

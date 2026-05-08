@@ -33,19 +33,19 @@ const AdminDashboard = () => {
         try {
             // Fetch all data in parallel
             const [statsRes, customersRes, productsRes, sellersRes, pendingSellersRes] = await Promise.all([
-                fetch('https://specs-backend.onrender.com/api/dashboard/stats', {
+                fetch('https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/dashboard/stats', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 }),
-                fetch('https://specs-backend.onrender.com/api/dashboard/customers', {
+                fetch('https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/dashboard/customers', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 }),
-                fetch('https://specs-backend.onrender.com/api/dashboard/products', {
+                fetch('https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/dashboard/products', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 }),
-                fetch('https://specs-backend.onrender.com/api/dashboard/sellers', {
+                fetch('https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/dashboard/sellers', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 }),
-                fetch('https://specs-backend.onrender.com/api/dashboard/sellers/pending', {
+                fetch('https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/dashboard/sellers/pending', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 })
             ]);
@@ -72,7 +72,7 @@ const AdminDashboard = () => {
     const handleApproveSeller = async (sellerId) => {
         try {
             const token = localStorage.getItem('adminToken');
-            const response = await fetch(`https://specs-backend.onrender.com/api/dashboard/sellers/${sellerId}/approve`, {
+            const response = await fetch(`https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/dashboard/sellers/${sellerId}/approve`, {
                 method: 'PUT',
                 headers: { 'Authorization': `Bearer ${token}` }
             });
@@ -97,7 +97,7 @@ const AdminDashboard = () => {
 
         try {
             const token = localStorage.getItem('adminToken');
-            const response = await fetch(`https://specs-backend.onrender.com/api/dashboard/sellers/${sellerId}/reject`, {
+            const response = await fetch(`https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/dashboard/sellers/${sellerId}/reject`, {
                 method: 'PUT',
                 headers: { 'Authorization': `Bearer ${token}` }
             });
@@ -122,7 +122,7 @@ const AdminDashboard = () => {
 
         try {
             const token = localStorage.getItem('adminToken');
-            const response = await fetch(`https://specs-backend.onrender.com/api/dashboard/products/${productId}`, {
+            const response = await fetch(`https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/dashboard/products/${productId}`, {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${token}` }
             });

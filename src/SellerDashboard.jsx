@@ -39,7 +39,7 @@ const SellerDashboard = () => {
 
     const fetchProducts = async (token) => {
         try {
-            const response = await fetch('https://specs-backend.onrender.com/api/products/seller/my-products', {
+            const response = await fetch('https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/products/seller/my-products', {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -58,7 +58,7 @@ const SellerDashboard = () => {
 
     const fetchOrders = async (token) => {
         try {
-            const response = await fetch('https://specs-backend.onrender.com/api/orders/seller/my-orders', {
+            const response = await fetch('https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/orders/seller/my-orders', {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -113,7 +113,7 @@ const SellerDashboard = () => {
 
         try {
             const token = localStorage.getItem('sellerToken');
-            const response = await fetch('https://specs-backend.onrender.com/api/products', {
+            const response = await fetch('https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/products', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -143,7 +143,7 @@ const SellerDashboard = () => {
 
         try {
             const token = localStorage.getItem('sellerToken');
-            const response = await fetch(`https://specs-backend.onrender.com/api/products/${productId}`, {
+            const response = await fetch(`https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/products/${productId}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`

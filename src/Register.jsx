@@ -46,7 +46,7 @@ const Register = () => {
         }
 
         try {
-            const response = await fetch('https://specs-backend.onrender.com/api/auth/register', {
+            const response = await fetch('https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

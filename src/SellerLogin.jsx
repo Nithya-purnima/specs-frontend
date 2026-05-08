@@ -28,7 +28,7 @@ const SellerLogin = () => {
 
         setLoading(true);
         try {
-            const response = await fetch('https://specs-backend.onrender.com/api/seller/login', {
+            const response = await fetch('https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/seller/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -49,7 +49,7 @@ const CustomerDashboard = () => {
     const handleSaveChanges = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch(`https://specs-backend.onrender.com/api/auth/customer/${customer.id}`, {
+            const response = await fetch(`https://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.comhttps://specs-backend.onrender.com/api/auth/customer/${customer.id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
