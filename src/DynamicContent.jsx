@@ -9,7 +9,7 @@ function DynamicContent() {
 
     useEffect(() => {
         // Fetch products from backend API
-        fetch('http://localhost:5000/api/products')
+        fetch('https://specs-backend.onrender.com/api/products')
             .then((response) => {
                 if (!response.ok) {
                     throw Error('Could not retrieve products from server');

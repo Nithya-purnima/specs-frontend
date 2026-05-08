@@ -49,7 +49,7 @@ const CustomerDashboard = () => {
     const handleSaveChanges = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch(`http://localhost:5000/api/auth/customer/${customer.id}`, {
+            const response = await fetch(`https://specs-backend.onrender.com/api/auth/customer/${customer.id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

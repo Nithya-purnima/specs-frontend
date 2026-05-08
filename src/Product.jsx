@@ -60,7 +60,7 @@ function Product({ product }) {
         <>
             <div className="card">
                 <img
-                    src={product.image ? `http://localhost:5000${product.image}` : 'https://via.placeholder.com/300'}
+                    src={product.image ? `https://specs-backend.onrender.com${product.image}` : 'https://via.placeholder.com/300'}
                     alt={product.name}
                     style={{ 
                         width: "100%", 
@@ -86,7 +86,7 @@ function Product({ product }) {
                 {isGlassesProduct && (
                     <button
                         onClick={() => navigate('/tryon', {
-                            state: { glassesImg: product.image ? `http://localhost:5000${product.image}` : null }
+                            state: { glassesImg: product.image ? `https://specs-backend.onrender.com${product.image}` : null }
                         })}
                         style={{
                             width: '100%',
@@ -148,7 +148,7 @@ function Product({ product }) {
                         boxShadow: '0 4px 24px rgba(0,0,0,0.18)',
                         textAlign: 'center'
                     }}>
-                        <img src={product.image ? `http://localhost:5000${product.image}` : 'https://via.placeholder.com/180'}
+                        <img src={product.image ? `https://specs-backend.onrender.com${product.image}` : 'https://via.placeholder.com/180'}
                             alt={product.name}
                             style={{ width: '180px', height: '180px', objectFit: 'cover', borderRadius: '12px', marginBottom: '16px' }} />
 

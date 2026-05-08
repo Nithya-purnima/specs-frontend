@@ -47,7 +47,7 @@ const SellerRegister = () => {
         }
 
         try {
-            const response = await fetch('http://localhost:5000/api/seller/register', {
+            const response = await fetch('https://specs-backend.onrender.com/api/seller/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

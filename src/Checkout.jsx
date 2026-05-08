@@ -85,7 +85,7 @@ const Checkout = () => {
 
             // Place orders for each cart item
             for (const item of cartItems) {
-                const response = await fetch('http://localhost:5000/api/orders', {
+                const response = await fetch('https://specs-backend.onrender.com/api/orders', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -324,7 +324,7 @@ const Checkout = () => {
                             {cartItems.map((item, index) => (
                                 <div key={index} className="summary-item">
                                     <img
-                                        src={item.image ? `http://localhost:5000${item.image}` : 'https://via.placeholder.com/60'}
+                                        src={item.image ? `https://specs-backend.onrender.com${item.image}` : 'https://via.placeholder.com/60'}
                                         alt={item.name}
                                     />
                                     <div className="item-details">

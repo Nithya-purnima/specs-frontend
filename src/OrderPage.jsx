@@ -26,7 +26,7 @@ function OrdersPage() {
                 return;
             }
 
-            const response = await fetch('http://localhost:5000/api/orders/customer/my-orders', {
+            const response = await fetch('https://specs-backend.onrender.com/api/orders/customer/my-orders', {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -80,7 +80,7 @@ function OrdersPage() {
                                 <div className="order-card-body">
                                     <div className="item-details">
                                         <img 
-                                            src={order.product?.image ? `http://localhost:5000${order.product.image}` : 'https://via.placeholder.com/100'} 
+                                            src={order.product?.image ? `https://specs-backend.onrender.com${order.product.image}` : 'https://via.placeholder.com/100'} 
                                             alt={order.product?.name} 
                                             className="item-image" 
                                         />
