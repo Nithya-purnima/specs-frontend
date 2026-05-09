@@ -1,6 +1,7 @@
 // src/components/VirtualTryOn.js
 import React, { useRef, useEffect, useState } from "react";
 import * as faceapi from "@vladmandic/face-api";
+import * as tf from "@tensorflow/tfjs";
 
 const VirtualTryOn = ({ glassesImg }) => {
   const videoRef = useRef();
@@ -9,6 +10,7 @@ const VirtualTryOn = ({ glassesImg }) => {
   const streamRef = useRef(null);
   const [modelsLoaded, setModelsLoaded] = useState(false);
   const [screenshot, setScreenshot] = useState(null);
+  const [tfReady, setTfReady] = useState(false);
 
   const takeScreenshot = () => {
     const canvas = canvasRef.current;
@@ -28,9 +30,30 @@ link.click();
 
   };
 
+  // Initialize TensorFlow backend BEFORE loading models
+  useEffect(() => {
+    const initializeTensorFlow = async () => {
+      try {
+        // Set CPU backend as fallback to handle WebGL/WASM failures
+        await tf.setBackend('cpu');
+        await tf.ready();
+        console.log('TensorFlow initialized with CPU backend');
+        setTfReady(true);
+      } catch (error) {
+        console.warn('Error initializing TensorFlow:', error);
+        // Continue anyway - TensorFlow may initialize on its own
+        setTfReady(true);
+      }
+    };
+    initializeTensorFlow();
+  }, []);
+
   // Load face-api models
   useEffect(() => {
     const loadModels = async () => {
+      // Wait for TensorFlow to be ready BEFORE loading models
+      if (!tfReady) return;
+
       try {
         const MODEL_URL = import.meta.env.BASE_URL + "models";
         await Promise.all([
@@ -43,7 +66,7 @@ link.click();
       }
     };
     loadModels();
-  }, []);
+  }, [tfReady]);
 
   // Load glasses image
   useEffect(() => {

@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tensorflow/tfjs": "^4.11.0",
     "@vladmandic/face-api": "^1.7.15",
     "face-api.js": "^0.22.2",
     "react": "^19.1.1",
