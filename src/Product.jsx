@@ -9,7 +9,6 @@ function Product({ product }) {
     const navigate = useNavigate();
 
     const [showModal, setShowModal] = useState(false);
-    const [showLoginPrompt, setShowLoginPrompt] = useState(false);
     const [quantity, setQuantity] = useState(1);
 
     if (!product) return null;
@@ -24,18 +23,15 @@ function Product({ product }) {
 
     function handleAddToCart() {
         if (!checkLogin()) {
-            setShowLoginPrompt(true);
+            alert("Please login first");
             return;
         }
-
-        if (!isInCart) {
-            addToCart(product);
-        }
+        if (!isInCart) addToCart(product);
     }
 
     function handleBuyNow() {
         if (!checkLogin()) {
-            setShowLoginPrompt(true);
+            alert("Please login first");
             return;
         }
         setShowModal(true);
@@ -83,7 +79,7 @@ function Product({ product }) {
                 {product.category && (
                     <span
                         className="category-badge-product"
-                        style={{ cursor: 'pointer' }}
+                        style={{ cursor: 'pointer', color: '#4f46e5', fontWeight: 600 }}
                         onClick={() =>
                             navigate(`/products?category=${encodeURIComponent(product.category)}`)
                         }
@@ -94,16 +90,6 @@ function Product({ product }) {
 
                 <p className="price">Price: ₹{product.price}</p>
                 <p>Brand: {product.brand}</p>
-
-                <button
-                    onClick={() =>
-                        navigate('/tryon', {
-                            state: { glassesImg: imageUrl }
-                        })
-                    }
-                >
-                    👓 Virtual Try-On
-                </button>
 
                 <button onClick={handleAddToCart} disabled={isInCart}>
                     {isInCart ? "Added to Cart" : "Add to Cart"}
@@ -134,23 +120,21 @@ function Product({ product }) {
                         <h2>{product.name}</h2>
                         <p>{product.description}</p>
 
-                        <p style={{ fontWeight: 'bold' }}>
-                            Price: ₹{product.price}
-                        </p>
+                        <p><b>Price: ₹{product.price}</b></p>
 
-                        <p style={{ fontWeight: 500, color: '#4caf50' }}>
+                        <p style={{ color: '#4caf50' }}>
                             Total: ₹{product.price * quantity}
                         </p>
 
                         <div style={{ margin: '18px 0' }}>
-                            <label>Quantity:</label>
+                            <label>Quantity: </label>
 
                             <input
                                 type="number"
                                 min="1"
                                 value={quantity}
                                 onChange={(e) =>
-                                    setQuantity(Math.max(1, parseInt(e.target.value) || 1))
+                                    setQuantity(Math.max(1, Number(e.target.value)))
                                 }
                             />
                         </div>
