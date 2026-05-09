@@ -75,11 +75,11 @@ function Product({ product }) {
                 <h3>{product.name}</h3>
                 <p>{product.description}</p>
 
-                {/* ✅ CLICKABLE CATEGORY */}
+                {/* CATEGORY CLICK */}
                 {product.category && (
                     <span
                         className="category-badge-product"
-                        style={{ cursor: 'pointer', color: '#4f46e5', fontWeight: 600 }}
+                        style={{ cursor: 'pointer', color: 'white', fontWeight: 600 }}
                         onClick={() =>
                             navigate(`/products?category=${encodeURIComponent(product.category)}`)
                         }
@@ -90,6 +90,30 @@ function Product({ product }) {
 
                 <p className="price">Price: ₹{product.price}</p>
                 <p>Brand: {product.brand}</p>
+
+                {/* 👓 VIRTUAL TRY ON BUTTON (FIXED - ADDED BACK) */}
+                <button
+                    onClick={() =>
+                        navigate('/tryon', {
+                            state: {
+                                glassesImg: imageUrl
+                            }
+                        })
+                    }
+                    style={{
+                        width: '100%',
+                        marginBottom: '10px',
+                        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                        color: '#fff',
+                        border: 'none',
+                        borderRadius: '24px',
+                        padding: '10px 28px',
+                        fontWeight: 600,
+                        cursor: 'pointer'
+                    }}
+                >
+                    👓 Virtual Try-On
+                </button>
 
                 <button onClick={handleAddToCart} disabled={isInCart}>
                     {isInCart ? "Added to Cart" : "Add to Cart"}
