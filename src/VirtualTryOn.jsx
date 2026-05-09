@@ -11,6 +11,15 @@ const VirtualTryOn = ({ glassesImg }) => {
   const [modelsLoaded, setModelsLoaded] = useState(false);
   const [screenshot, setScreenshot] = useState(null);
   const [tfReady, setTfReady] = useState(false);
+  const [glassesImageLoaded, setGlassesImageLoaded] = useState(false);
+
+  // Validate glassesImg prop on mount
+  useEffect(() => {
+    console.log('🔍 VirtualTryOn component received glassesImg prop:', glassesImg);
+    if (!glassesImg) {
+      console.warn('⚠️ WARNING: glassesImg prop is undefined or null');
+    }
+  }, [glassesImg]);
 
   const takeScreenshot = () => {
     const canvas = canvasRef.current;
@@ -70,16 +79,58 @@ link.click();
 
   // Load glasses image
   useEffect(() => {
+    if (!glassesImg) {
+      console.error('❌ glassesImg is undefined - cannot load image');
+      setGlassesImageLoaded(false);
+      return;
+    }
+
+    console.log('📦 Loading glasses image from source:', glassesImg);
     const img = new Image();
-    img.src = glassesImg;
+    
+    // Set CORS attributes to handle cross-origin images
+    img.crossOrigin = 'anonymous';
+    
     img.onload = () => {
       glassesImgRef.current = img;
+      console.log('✅ Glasses image loaded successfully:', { 
+        src: glassesImg, 
+        width: img.width, 
+        height: img.height,
+        naturalWidth: img.naturalWidth,
+        naturalHeight: img.naturalHeight
+      });
+      setGlassesImageLoaded(true);
     };
+    
+    img.onerror = (error) => {
+      console.error('❌ Failed to load glasses image:', { src: glassesImg, error });
+      setGlassesImageLoaded(false);
+    };
+
+    // Set timeout to detect if image fails to load
+    const loadTimeout = setTimeout(() => {
+      if (!glassesImgRef.current) {
+        console.error('⏱️ TIMEOUT: Glasses image did not load within 5 seconds:', glassesImg);
+      }
+    }, 5000);
+
+    img.src = glassesImg;
+
+    return () => clearTimeout(loadTimeout);
   }, [glassesImg]);
 
   // Handle video and face detection
   useEffect(() => {
-    if (!modelsLoaded) return;
+    if (!modelsLoaded) {
+      console.log('⏳ Waiting for models to load...');
+      return;
+    }
+
+    if (!glassesImageLoaded) {
+      console.log('⏳ Waiting for glasses image to load...');
+      return;
+    }
 
     const startVideo = async () => {
       try {
@@ -113,7 +164,17 @@ link.click();
           .detectAllFaces(videoRef.current, new faceapi.TinyFaceDetectorOptions())
           .withFaceLandmarks();
 
-        detections.forEach((detection) => {
+        if (!detections || detections.length === 0) {
+          console.warn('⚠️ No faces detected in frame');
+        } else {
+          console.log('✅ Face detection successful:', { faceCount: detections.length });
+        }
+
+        detections.forEach((detection, index) => {
+          console.log(`📍 Face ${index + 1} landmarks detected:`, {
+            leftEyePts: detection.landmarks.getLeftEye().map(pt => ({ x: pt.x.toFixed(2), y: pt.y.toFixed(2) })),
+            rightEyePts: detection.landmarks.getRightEye().map(pt => ({ x: pt.x.toFixed(2), y: pt.y.toFixed(2) }))
+          });
           const landmarks = detection.landmarks;
           const leftEyePts = landmarks.getLeftEye();
           const rightEyePts = landmarks.getRightEye();
@@ -127,26 +188,51 @@ link.click();
           const glassesWidth = eyeDist * 2.1;
 
           if (glassesImgRef.current) {
-            const glassesHeight = glassesWidth * (glassesImgRef.current.height / glassesImgRef.current.width);
-            const centerX = (leftEyeX + rightEyeX) / 2 - glassesWidth / 2;
-            const centerY = (leftEyeY + rightEyeY) / 2 - glassesHeight / 2;
-            const angle = Math.atan2(rightEyeY - leftEyeY, rightEyeX - leftEyeX);
+            // Validate image is fully loaded with proper dimensions
+            if (!glassesImgRef.current.complete) {
+              console.warn('⚠️ Glasses image not fully loaded yet');
+            }
+            
+            if (glassesImgRef.current.width === 0 || glassesImgRef.current.height === 0) {
+              console.error('❌ Glasses image has invalid dimensions (0x0)');
+            } else {
+              const glassesHeight = glassesWidth * (glassesImgRef.current.height / glassesImgRef.current.width);
+              const centerX = (leftEyeX + rightEyeX) / 2 - glassesWidth / 2;
+              const centerY = (leftEyeY + rightEyeY) / 2 - glassesHeight / 2;
+              const angle = Math.atan2(rightEyeY - leftEyeY, rightEyeX - leftEyeX);
 
-            context.save();
-            context.translate(centerX + glassesWidth / 2, centerY + glassesHeight / 2);
-            context.rotate(angle);
-            context.drawImage(
-              glassesImgRef.current,
-              -glassesWidth / 2,
-              -glassesHeight / 2,
-              glassesWidth,
-              glassesHeight
-            );
-            context.restore();
+              console.log(`🎨 Rendering glasses overlay for face ${index + 1}:`, {
+                glassesWidth: glassesWidth.toFixed(2),
+                glassesHeight: glassesHeight.toFixed(2),
+                centerX: centerX.toFixed(2),
+                centerY: centerY.toFixed(2),
+                angleRad: angle.toFixed(3),
+                imageLoaded: !!glassesImgRef.current,
+                imageComplete: glassesImgRef.current?.complete
+              });
+
+              context.save();
+              context.translate(centerX + glassesWidth / 2, centerY + glassesHeight / 2);
+              context.rotate(angle);
+              console.log('🖼️ Canvas drawImage called with glasses overlay');
+              context.drawImage(
+                glassesImgRef.current,
+                -glassesWidth / 2,
+                -glassesHeight / 2,
+                glassesWidth,
+                glassesHeight
+              );
+              context.restore();
+            }
+          } else {
+            console.error('❌ glassesImgRef.current is null - glasses image not loaded (will retry on next frame)', {
+              glassesImageLoaded,
+              glassesImg
+            });
           }
         });
       } catch (error) {
-        console.error('Error detecting face:', error);
+        console.error('❌ Face detection error:', error);
       }
     }, 300);
 
@@ -156,7 +242,7 @@ link.click();
         streamRef.current.getTracks().forEach(track => track.stop());
       }
     };
-  }, [modelsLoaded]);
+  }, [modelsLoaded, glassesImageLoaded]);
 
   return (
     <div style={{ 
