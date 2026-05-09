@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BASE_URL } from './config';
+import { getImageUrl } from './config';
 import './SellerDashboard.css';
 
 const SellerDashboard = () => {
@@ -294,8 +294,11 @@ const SellerDashboard = () => {
                                 products.map(product => (
                                     <div key={product.id} className="product-card">
                                         <img 
-                                            src={product.image ? `${BASE_URL}${product.image}` : 'https://via.placeholder.com/200'} 
-                                            alt={product.name}
+                                              src={getImageUrl(product.image)}
+                                              alt={product.name}
+                                              onError={(e) => {
+                                              e.target.src = 'https://via.placeholder.com/200';
+                                              }}
                                         />
                                         <div className="product-info">
                                             <h3>{product.name}</h3>

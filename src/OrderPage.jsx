@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import cartempty from "./cartempty.png";
-import { BASE_URL } from './config';
+import { BASE_URL, getImageUrl } from './config';
 
 import './OrderPage.css';
 
@@ -81,7 +81,7 @@ function OrdersPage() {
                                 <div className="order-card-body">
                                     <div className="item-details">
                                         <img 
-                                            src={order.product?.image ? `${BASE_URL}${order.product.image}` : 'https://via.placeholder.com/100'} 
+                                            src={getImageUrl(order.product?.image)} 
                                             alt={order.product?.name} 
                                             className="item-image" 
                                         />

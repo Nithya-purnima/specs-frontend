@@ -322,7 +322,7 @@ const AdminDashboard = () => {
                             {products.map(product => (
                                 <div key={product.id} className="product-card">
                                     <img 
-                                        src={product.image ? `${BASE_URL}${product.image}` : 'https://via.placeholder.com/200'} 
+                                        src={product.image ? (product.image.startsWith('http') ? product.image : `${BASE_URL}${product.image}`) : 'https://via.placeholder.com/200'} 
                                         alt={product.name}
                                     />
                                     <div className="product-info">

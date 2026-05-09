@@ -325,7 +325,7 @@ const Checkout = () => {
                             {cartItems.map((item, index) => (
                                 <div key={index} className="summary-item">
                                     <img
-                                        src={item.image ? `${BASE_URL}${item.image}` : 'https://via.placeholder.com/60'}
+                                        src={item.image ? (item.image.startsWith('http') ? item.image : `${BASE_URL}${item.image}`) : 'https://via.placeholder.com/60'}
                                         alt={item.name}
                                     />
                                     <div className="item-details">
