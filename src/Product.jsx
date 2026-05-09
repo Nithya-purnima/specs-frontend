@@ -38,7 +38,6 @@ function Product({ product }) {
             setShowLoginPrompt(true);
             return;
         }
-
         setShowModal(true);
     }
 
@@ -54,7 +53,6 @@ function Product({ product }) {
                 totalAmount: product.price * quantity
             }
         });
-
         closeModal();
     }
 
@@ -79,38 +77,30 @@ function Product({ product }) {
                 />
 
                 <h3>{product.name}</h3>
-
                 <p>{product.description}</p>
 
+                {/* ✅ CLICKABLE CATEGORY */}
                 {product.category && (
-                    <span className="category-badge-product">
+                    <span
+                        className="category-badge-product"
+                        style={{ cursor: 'pointer' }}
+                        onClick={() =>
+                            navigate(`/products?category=${encodeURIComponent(product.category)}`)
+                        }
+                    >
                         {product.category}
                     </span>
                 )}
 
                 <p className="price">Price: ₹{product.price}</p>
-
                 <p>Brand: {product.brand}</p>
 
                 <button
                     onClick={() =>
                         navigate('/tryon', {
-                            state: {
-                                glassesImg: imageUrl
-                            }
+                            state: { glassesImg: imageUrl }
                         })
                     }
-                    style={{
-                        width: '100%',
-                        marginBottom: '10px',
-                        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                        color: '#fff',
-                        border: 'none',
-                        borderRadius: '24px',
-                        padding: '10px 28px',
-                        fontWeight: 600,
-                        cursor: 'pointer'
-                    }}
                 >
                     👓 Virtual Try-On
                 </button>
@@ -119,23 +109,12 @@ function Product({ product }) {
                     {isInCart ? "Added to Cart" : "Add to Cart"}
                 </button>
 
-                <button
-                    onClick={handleBuyNow}
-                    style={{
-                        marginLeft: '10px',
-                        background: '#4caf50',
-                        color: '#fff',
-                        border: 'none',
-                        borderRadius: '24px',
-                        padding: '10px 28px',
-                        fontWeight: 600,
-                        cursor: 'pointer'
-                    }}
-                >
+                <button onClick={handleBuyNow}>
                     Buy Now
                 </button>
             </div>
 
+            {/* MODAL */}
             {showModal && (
                 <div className="modal-overlay">
                     <div className="modal-box">
@@ -153,17 +132,13 @@ function Product({ product }) {
                         />
 
                         <h2>{product.name}</h2>
-
                         <p>{product.description}</p>
 
                         <p style={{ fontWeight: 'bold' }}>
                             Price: ₹{product.price}
                         </p>
 
-                        <p style={{
-                            fontWeight: 500,
-                            color: '#4caf50'
-                        }}>
+                        <p style={{ fontWeight: 500, color: '#4caf50' }}>
                             Total: ₹{product.price * quantity}
                         </p>
 
@@ -175,20 +150,13 @@ function Product({ product }) {
                                 min="1"
                                 value={quantity}
                                 onChange={(e) =>
-                                    setQuantity(
-                                        Math.max(1, parseInt(e.target.value) || 1)
-                                    )
+                                    setQuantity(Math.max(1, parseInt(e.target.value) || 1))
                                 }
                             />
                         </div>
 
-                        <button onClick={handleConfirmBuy}>
-                            Confirm Buy
-                        </button>
-
-                        <button onClick={closeModal}>
-                            Cancel
-                        </button>
+                        <button onClick={handleConfirmBuy}>Confirm Buy</button>
+                        <button onClick={closeModal}>Cancel</button>
 
                     </div>
                 </div>
