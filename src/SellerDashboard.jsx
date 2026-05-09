@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getImageUrl } from './config';
+import { BASE_URL, getImageUrl } from './config';
 import './SellerDashboard.css';
 
 const SellerDashboard = () => {
