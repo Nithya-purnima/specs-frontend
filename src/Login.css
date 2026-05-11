@@ -120,3 +120,72 @@
     font-size: 13px;
     color: #777;
 }
+
+/* Tablet */
+@media (max-width: 768px) {
+    .login-bg {
+        padding: 15px;
+    }
+    .login-form {
+        padding: 2rem 1.8rem;
+        border-radius: 14px;
+        gap: 1rem;
+        max-width: 380px;
+    }
+    .login-form:hover {
+        transform: none;
+    }
+    .login-form input {
+        padding: 10px 12px;
+        font-size: 14px;
+        border-radius: 8px;
+    }
+    .login-form button {
+        padding: 10px;
+        font-size: 15px;
+        border-radius: 8px;
+    }
+    .login-form button:hover {
+        transform: none;
+    }
+    .login-form h2 {
+        font-size: 22px;
+        margin-bottom: 8px;
+    }
+    .login-form p {
+        font-size: 12px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .login-bg {
+        padding: 10px;
+        min-height: 100vh;
+    }
+    .login-form {
+        padding: 1.6rem 1.4rem;
+        border-radius: 12px;
+        gap: 0.9rem;
+        max-width: 100%;
+        border: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .login-form input {
+        padding: 10px;
+        font-size: 13px;
+        border-radius: 6px;
+    }
+    .login-form button {
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 6px;
+    }
+    .login-form h2 {
+        font-size: 20px;
+        margin-bottom: 6px;
+    }
+    .login-form p {
+        font-size: 11px;
+    }
+}

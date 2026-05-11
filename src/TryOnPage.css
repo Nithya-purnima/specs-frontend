@@ -29,12 +29,66 @@
   align-items: center;
 }
 
-@media (max-width: 600px) {
-  .tryon-card {
-    padding: 1.2rem 0.5rem;
-    max-width: 98vw;
+@media (max-width: 1024px) {
+  .tryon-page-container {
+    padding: 24px 15px;
   }
   .tryon-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
+    margin-bottom: 1.8rem;
+  }
+  .tryon-card {
+    padding: 2rem 1.5rem;
+    max-width: 100%;
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tryon-page-container {
+    padding: 20px 12px;
+    min-height: 100vh;
+  }
+  .tryon-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0;
+  }
+  .tryon-card {
+    padding: 1.8rem 1.2rem;
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 3px 16px rgba(44,62,80,0.08);
+  }
+}
+
+@media (max-width: 600px) {
+  .tryon-page-container {
+    padding: 15px 10px;
+  }
+  .tryon-card {
+    padding: 1.4rem 0.8rem;
+    max-width: 98vw;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(44,62,80,0.06);
+  }
+  .tryon-title {
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tryon-page-container {
+    padding: 12px 8px;
+  }
+  .tryon-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  .tryon-card {
+    padding: 1.2rem 0.6rem;
+    max-width: 95vw;
+    border-radius: 8px;
   }
 }

@@ -1,15 +1,15 @@
 .sidebar-toggle {
     position: fixed;
-    top: 20px;
-    left: 20px;
+    top: 15px;
+    left: 15px;
     z-index: 1001;
     background: black;
     color: white;
     border: none;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
-    font-size: 24px;
+    font-size: 20px;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     transition: all 0.3s;
@@ -25,9 +25,9 @@
 
 .sidebar {
     position: fixed;
-    left: -350px;
+    left: -280px;
     top: 0;
-    width: 350px;
+    width: 280px;
     height: 100vh;
     background: white;
     box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
@@ -42,15 +42,15 @@
 
 .sidebar-close {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 15px;
+    right: 15px;
     background: none;
     border: none;
-    font-size: 36px;
+    font-size: 32px;
     color: #666;
     cursor: pointer;
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -62,43 +62,44 @@
 }
 
 .sidebar-header {
-    padding: 40px 30px 30px;
+    padding: 30px 20px 20px;
     background: black;
     color: white;
 }
 
 .sidebar-header h2 {
-    margin: 0 0 8px 0;
-    font-size: 28px;
+    margin: 0 0 6px 0;
+    font-size: 22px;
 }
 
 .sidebar-header p {
     margin: 0;
     opacity: 0.9;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .sidebar-links {
-    padding: 30px 20px;
+    padding: 20px 12px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
 }
 
 .sidebar-link {
     display: flex;
     align-items: center;
-    padding: 20px;
-    border-radius: 12px;
+    padding: 16px;
+    border-radius: 10px;
     text-decoration: none;
     transition: all 0.3s;
     border: 2px solid #f0f0f0;
     background: white;
+    font-size: 14px;
 }
 
 .sidebar-link:hover {
-    transform: translateX(8px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateX(6px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar-link.customer {
@@ -129,15 +130,16 @@
 }
 
 .sidebar-link-icon {
-    font-size: 36px;
-    margin-right: 16px;
-    width: 50px;
-    height: 50px;
+    font-size: 28px;
+    margin-right: 12px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     background: #f5f5f5;
+    flex-shrink: 0;
 }
 
 .sidebar-link.customer .sidebar-link-icon {
@@ -146,6 +148,19 @@
 
 .sidebar-link.seller .sidebar-link-icon {
     background: #e3f2fd;
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        left: -100%;
+        width: 85%;
+        max-width: 280px;
+    }
+    .sidebar-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
 }
 
 .sidebar-link.admin .sidebar-link-icon {

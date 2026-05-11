@@ -247,23 +247,168 @@ textarea.edit-input {
     border: 1px solid #b7eb8f;
 }
 
+@media (max-width: 1024px) {
+    .customer-dashboard {
+        padding: 15px;
+    }
+    .dashboard-header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    .dashboard-header h1 {
+        font-size: 24px;
+    }
+    .profile-section {
+        gap: 15px;
+    }
+    .profile-card {
+        padding: 20px;
+    }
+    .quick-actions {
+        padding: 20px;
+    }
+}
+
 @media (max-width: 768px) {
+    .customer-dashboard {
+        padding: 12px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    .dashboard-header {
+        padding: 12px 15px;
+        flex-direction: column;
+        gap: 8px;
+        align-items: stretch;
+    }
+    .dashboard-header h1 {
+        font-size: 20px;
+    }
+    .dashboard-header p {
+        font-size: 13px;
+    }
+    .logout-btn {
+        width: 100%;
+        padding: 10px 16px;
+        font-size: 0.95rem;
+    }
     .profile-section {
         grid-template-columns: 1fr;
+        gap: 12px;
     }
-
+    .profile-card {
+        padding: 16px;
+    }
     .profile-header {
         flex-direction: column;
         text-align: center;
+        gap: 12px;
+        margin-bottom: 16px;
+        padding-bottom: 16px;
     }
-
+    .profile-avatar {
+        width: 70px;
+        height: 70px;
+        font-size: 32px;
+    }
+    .profile-info h2 {
+        font-size: 20px;
+    }
+    .profile-email {
+        font-size: 12px;
+    }
+    .profile-details h3 {
+        font-size: 16px;
+        margin-bottom: 16px;
+    }
+    .detail-row label {
+        font-size: 13px;
+    }
+    .detail-row p {
+        font-size: 14px;
+    }
     .profile-actions {
         flex-direction: column;
+        gap: 8px;
+        margin-top: 16px;
     }
-
     .edit-btn,
     .save-btn,
     .cancel-btn {
         width: 100%;
+        padding: 10px 16px;
+        font-size: 0.95rem;
+    }
+    .quick-actions {
+        padding: 16px;
+    }
+    .quick-actions h3 {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+    .action-btn {
+        padding: 10px;
+        font-size: 0.95rem;
+        margin-bottom: 8px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .customer-dashboard {
+        padding: 10px;
+    }
+    .dashboard-header {
+        padding: 10px 12px;
+        gap: 6px;
+    }
+    .dashboard-header h1 {
+        font-size: 18px;
+    }
+    .logout-btn {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    .profile-card {
+        padding: 12px;
+    }
+    .profile-header {
+        margin-bottom: 12px;
+        padding-bottom: 12px;
+    }
+    .profile-avatar {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+    }
+    .profile-info h2 {
+        font-size: 18px;
+    }
+    .profile-details h3 {
+        font-size: 14px;
+    }
+    .detail-row label {
+        font-size: 12px;
+    }
+    .detail-row p {
+        font-size: 13px;
+    }
+    .edit-btn,
+    .save-btn,
+    .cancel-btn {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    .quick-actions {
+        padding: 12px;
+    }
+    .quick-actions h3 {
+        font-size: 14px;
+    }
+    .action-btn {
+        padding: 8px;
+        font-size: 0.9rem;
+        margin-bottom: 6px;
     }
 }

@@ -1,0 +1,250 @@
+/* Global Responsive Utilities */
+
+/* Base Responsive Typography */
+html {
+    font-size: 16px;
+}
+
+/* Tablet (768px and below) */
+@media (max-width: 768px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+/* Global Box Sizing */
+* {
+    box-sizing: border-box;
+}
+
+/* Responsive Images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Responsive Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+@media (max-width: 768px) {
+    table {
+        font-size: 0.9rem;
+    }
+    
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+    
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    
+    td {
+        position: relative;
+        padding-left: 50%;
+    }
+}
+
+/* Responsive Containers */
+.container {
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+@media (max-width: 1200px) {
+    .container {
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 720px;
+        padding: 0 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        max-width: 540px;
+        padding: 0 10px;
+    }
+}
+
+/* Responsive Grid System */
+.grid {
+    display: grid;
+    gap: 20px;
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .grid {
+        gap: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        gap: 10px;
+    }
+}
+
+/* Responsive Flex */
+.flex-responsive {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .flex-responsive {
+        gap: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .flex-responsive {
+        gap: 8px;
+    }
+}
+
+/* Hide on Mobile */
+@media (max-width: 768px) {
+    .hide-mobile {
+        display: none !important;
+    }
+}
+
+/* Show on Mobile Only */
+@media (min-width: 769px) {
+    .show-mobile {
+        display: none !important;
+    }
+}
+
+/* Responsive Text */
+.text-responsive-lg {
+    font-size: 2.5rem;
+}
+
+@media (max-width: 768px) {
+    .text-responsive-lg {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .text-responsive-lg {
+        font-size: 1.4rem;
+    }
+}
+
+/* Responsive Padding/Margin Utilities */
+.p-responsive {
+    padding: 30px;
+}
+
+@media (max-width: 768px) {
+    .p-responsive {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .p-responsive {
+        padding: 12px;
+    }
+}
+
+.m-responsive {
+    margin: 30px;
+}
+
+@media (max-width: 768px) {
+    .m-responsive {
+        margin: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .m-responsive {
+        margin: 12px;
+    }
+}
+
+/* Touch-friendly buttons on mobile */
+@media (max-width: 768px) {
+    button, a[role="button"] {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* Prevent horizontal scroll */
+body, html {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+/* Responsive Video/Iframe */
+.video-responsive {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-responsive iframe,
+.video-responsive video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Responsive Modal/Dialog */
+@media (max-width: 768px) {
+    .modal {
+        width: 95% !important;
+        margin: auto !important;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        font-size: 12pt;
+    }
+    .no-print {
+        display: none;
+    }
+}
